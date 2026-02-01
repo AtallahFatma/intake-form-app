@@ -4,9 +4,4 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "compilerOptions": {
-    "paths": {
-      "@AtallahFatma/design-system": ["../design-system/src/index.css"]
-    }
-  }  
 }
