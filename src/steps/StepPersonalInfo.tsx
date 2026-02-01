@@ -13,6 +13,7 @@ type Props = {
 };
 
 const countryOptions = [
+  { label: "Select an option...", value: "" },
   { label: "France", value: "fr" },
   { label: "London", value: "uk" },
   { label: "United States", value: "us" },
@@ -22,7 +23,7 @@ export const StepPersonalInfo = ({ initialValues, onNext }: Props) => {
   const [values, setValues] = useState<Values>({
     name: initialValues?.name ?? "",
     email: initialValues?.email ?? "",
-    country: initialValues?.country ?? countryOptions[0].value,
+    country: initialValues?.country ?? "",
   });
 
   const [errors, setErrors] = useState<Partial<Values>>({});
@@ -58,17 +59,15 @@ export const StepPersonalInfo = ({ initialValues, onNext }: Props) => {
 
   return (
     <div>
-      <h3>Personal Information Step</h3>
-      <p>This is where the personal information form fields will go.</p>
-      <form onSubmit={handleSubmit}>
-        <FormField label="Full Name" error={errors.name}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <FormField label="Full Name" error={errors.name} >
           <Input
-            type="text"
             placeholder="Jane Doe"
             value={values.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setValues({ ...values, name: e.target.value })
             }
+            className="w-full"
           />
         </FormField>
         <FormField label="Email" error={errors.email}>
@@ -78,6 +77,7 @@ export const StepPersonalInfo = ({ initialValues, onNext }: Props) => {
               setValues((v) => ({ ...v, email: e.target.value }))
             }
             placeholder="jane@example.com"
+            className="w-full"
           />
         </FormField>
         <FormField label="Country" error={errors.country}>
@@ -87,11 +87,14 @@ export const StepPersonalInfo = ({ initialValues, onNext }: Props) => {
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
               setValues({ ...values, country: e.target.value })
             }
+            className="w-full"
           />
         </FormField>
-        <Button type="submit">
-          Next
-        </Button>
+        <div className="flex justify-end">
+          <Button type="submit">
+            Next
+          </Button>
+        </div>
       </form>
     </div>
   );
