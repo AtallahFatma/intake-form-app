@@ -115,3 +115,38 @@ npm run dev
 - Accessible error handling
 - Clean React architecture
 - Controlled inputs and validation
+
+---
+
+## 🔮 Roadmap & Improvements
+
+This project is intentionally structured to evolve.
+
+The current implementation focuses on architecture, accessibility,
+and clean consumption of the Design System. It is designed to be extended with:
+
+### Validation & Data Integrity
+- Schema-based validation (e.g., Zod)
+
+### Persistence
+- Local storage persistence between refreshes
+- Server-side draft saving
+
+### API Integration
+- Real backend submission
+- Error states and retry logic
+- Loading skeleton states
+
+### UX Enhancements
+- Improved progress indicator with checkmarks
+- Inline validation feedback
+- Success confirmation screen
+
+### Testing
+- Unit tests for each step
+- E2E tests for step navigation
+
+---
+
+This repository demonstrates a production-ready foundation
+rather than a finished product.
